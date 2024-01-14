@@ -11,32 +11,29 @@ body {
     @include medium {
         height: auto;
     }
-    /* @include x-small {
-        height: auto;
-    } */
+
 }
 
 .container {
     /* width: 920px; */
-    width: 54.12%;
+    /* width: 54.12%; */
+    /* height: 621.996px; */
+    width: 63.89%;
     border: 1px solid black;
     background: #C5E4E7;
-    height: 621.996px;
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    @include m-large {
+    @include xxl-large {
         width: 89.84%;
     }
+
     @include medium {
         width: 100vw;
-        height: auto;
+        /* height: auto; */
+        /* height: 100vh; */
     }
-    /* @include x-small {
-        width: 100vw;
-        height: auto;
-    } */
 
     &__img {
         border: 1px solid black;
@@ -51,10 +48,7 @@ body {
             margin-bottom: 40.86px;
             margin-top: 50px;
         }
-        /* @include x-small {
-            margin-bottom: 40.86px;
-            margin-top: 50px;
-        } */
+
     }
 
     &__box {
@@ -65,53 +59,111 @@ body {
         height: 481px;
         display: flex;
 
+        @media (min-width: 1600px) {
+            justify-content: space-between;
+        }
+
+        @include xxl-large {
+            justify-content: space-between;
+        }
+
         @include medium {
             flex-direction: column;
             height: auto;
             padding: 32px 24px;
         }
-        /* @include x-small {
-            flex-direction: column;
-            height: auto;
-            padding: 32px 24px;
-        } */
+
 
         .box-left{
+            /* width: 379px; */
             border: 1px solid red;
             background: #fff;
-            width: 379px;
+            width: 41.2%;
             height: 388px;
             margin: 45px 24px 48px 48px;
+
+            @include xxl-large {
+                margin: 45px 0 48px 48px;
+            }
 
             @include medium {
                 width: 100%;
                 height: 436px;
                 margin: 0 0 32px 0;
             }
-            /* @include x-small {
+
+            &__bill {
+                margin-bottom: 40px;
+                border: 1px solid blue;
+                h4 {
+                    margin-bottom: 6px;
+                }
+            }
+
+            &__tip {
                 width: 100%;
-                height: 436px;
-                margin: 0 0 32px 0;
-            } */
+                margin-bottom: 40px;
+                border: 1px solid blue;
+                h4 {
+                    margin-bottom: 16px;
+                }
+                &__btn {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+                    .btn {
+                        width: 117px;
+                        height: 48px;
+                        border-radius: 5px;
+                        background: #00474B;
+                        color: #fff;
+                        
+                    }
+                    .margin {
+                        margin-bottom: 16px;
+                    }
+                    input {
+                        width: 117px;
+                        height: 48px;
+                        border-radius: 5px;
+                        background: #ccc;
+                        color: #fff;
+                    }
+
+                }
+
+            }
+
+            &__number {
+                border: 1px solid blue;
+                h4 {
+                    margin-bottom: 6px;
+                }
+            }
+
+
+
         }
 
         .box-right{
-            width: 413px;
+            /* width: 413px; */
+            width: 44.89%;
             border-radius: 15px;
             background: #00474B;
             height: 417px;
             margin: 32px 32px 32px 24px;
 
+            @include xxl-large {
+                margin: 32px 32px 32px 0;
+            }
+
             @include medium {
                 width: 100%;
                 height: 257px;
                 margin: 0;
             }
-            /* @include x-small {
-                width: 100%;
-                height: 257px;
-                margin: 0;
-            } */
+
         }
     }
 }
