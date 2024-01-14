@@ -1,0 +1,133 @@
+/* ---- colors ----*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #C5E4E7;
+  font-family: "Space Mono";
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* @include x-small {
+      height: auto;
+  } */
+}
+@media (max-width: 767px) {
+  body {
+    height: auto;
+  }
+}
+
+.container {
+  /* width: 920px; */
+  width: 54.12%;
+  border: 1px solid black;
+  background: #C5E4E7;
+  height: 621.996px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* @include x-small {
+      width: 100vw;
+      height: auto;
+  } */
+}
+@media (max-width: 1024px) {
+  .container {
+    width: 89.84%;
+  }
+}
+@media (max-width: 767px) {
+  .container {
+    width: 100vw;
+    height: auto;
+  }
+}
+.container__img {
+  border: 1px solid black;
+  background: #C5E4E7;
+  margin-bottom: 87.86px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  /* @include x-small {
+      margin-bottom: 40.86px;
+      margin-top: 50px;
+  } */
+}
+@media (max-width: 767px) {
+  .container__img {
+    margin-bottom: 40.86px;
+    margin-top: 50px;
+  }
+}
+.container__box {
+  border-radius: 25px;
+  background: #FFF;
+  box-shadow: 0px 32px 43px 0px rgba(79, 166, 175, 0.2);
+  width: 100%;
+  height: 481px;
+  display: flex;
+  /* @include x-small {
+      flex-direction: column;
+      height: auto;
+      padding: 32px 24px;
+  } */
+}
+@media (max-width: 767px) {
+  .container__box {
+    flex-direction: column;
+    height: auto;
+    padding: 32px 24px;
+  }
+}
+.container__box .box-left {
+  border: 1px solid red;
+  background: #fff;
+  width: 379px;
+  height: 388px;
+  margin: 45px 24px 48px 48px;
+  /* @include x-small {
+      width: 100%;
+      height: 436px;
+      margin: 0 0 32px 0;
+  } */
+}
+@media (max-width: 767px) {
+  .container__box .box-left {
+    width: 100%;
+    height: 436px;
+    margin: 0 0 32px 0;
+  }
+}
+.container__box .box-right {
+  width: 413px;
+  border-radius: 15px;
+  background: #00474B;
+  height: 417px;
+  margin: 32px 32px 32px 24px;
+  /* @include x-small {
+      width: 100%;
+      height: 257px;
+      margin: 0;
+  } */
+}
+@media (max-width: 767px) {
+  .container__box .box-right {
+    width: 100%;
+    height: 257px;
+    margin: 0;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */
