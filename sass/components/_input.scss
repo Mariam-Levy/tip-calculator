@@ -1,7 +1,7 @@
 .calculator__label {
     margin-bottom: 6px;
     color: #5E7A7D;
-    @include letter(16px, 700, normal, normal, 'Space Mono');
+    @include letter(16px, 700, normal, normal);
 }
 
 .calculator__container {
@@ -29,7 +29,7 @@
     border: none;
     outline: none;
     border-radius: 5px;
-    @include letter(24px, 700, normal, normal, 'Space Mono');
+    @include letter(24px, 700, normal, normal);
 
     &::placeholder{
         color: #9EBCBD

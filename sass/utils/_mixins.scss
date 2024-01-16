@@ -4,10 +4,9 @@
     justify-content: $justify;
 }
 
-@mixin letter($size, $weight, $style, $height, $family) {
+@mixin letter($size, $weight, $style, $height) {
     font-size: $size;
     font-weight: $weight;
     font-style: $style;
     line-height: $height;
-    font-family: $family;
 }

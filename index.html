@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <title>Tip calculator app</title>
+    <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
@@ -39,11 +40,11 @@
                         <label class="calculator__label calculator__label--margin" for="tip">Select tip %</label>
                     </div>
                     <div class="calculator__btns">
-                        <button class="btn">5%</button>
-                        <button class="btn">10%</button>
-                        <button class="btn btn--focus">15%</button>
-                        <button class="btn">25%</button>
-                        <button class="btn">50%</button>
+                        <button id="btn5" class="btn">5%</button>
+                        <button id="btn10" class="btn">10%</button>
+                        <button id="btn15" class="btn btn--focus">15%</button>
+                        <button id="btn25" class="btn">25%</button>
+                        <button id="btn50" class="btn">50%</button>
                         <input class="btn custom custom--focus" id="tip" name="tip" type="text" placeholder="Custom">
                     </div>
                 </div>
@@ -92,5 +93,6 @@
     </div>
 
 
+    <script src="./calculator.js"></script>
 </body>
 </html>

@@ -65,7 +65,7 @@ body {
             margin: 13px 0 16px 16px;
 
             @include xxl-large {
-                margin: 45px 0 48px 48px; /*  */
+                margin: 45px 0 48px 48px;
             }
 
             @include medium {
@@ -108,7 +108,7 @@ body {
                         color: $color-custom;
                         text-align: center;
                         border: 2px solid transparent;
-                        @include letter(24px, 700, normal, normal, 'Space Mono');
+                        @include letter(24px, 700, normal, normal);
                         &--focus {
                             border: 2px solid $color-focus;
                             color: $color-dark;
@@ -150,7 +150,7 @@ body {
                 @include flex-group(flex, center, space-between);
 
                 @include medium {
-                    margin-bottom: 32px
+                    margin-bottom: 32px;
                 }
 
                 .amount__sub-display {
@@ -160,10 +160,10 @@ body {
 
                     .amount__tip {
                         color: $color-white;
-                        @include letter(16px, 700, normal, normal, 'Space Mono');
+                        @include letter(16px, 700, normal, normal);
                         span {
                             color: $color-person;
-                            @include letter(13px, 700, normal, normal, 'Space Mono');
+                            @include letter(13px, 700, normal, normal);
                         }
                     }
 
@@ -171,17 +171,17 @@ body {
                         color: $color-focus;
                         text-align: right;
                         letter-spacing: -1px;
-                        @include letter(48px, 700, normal, normal, 'Space Mono');
+                        @include letter(48px, 700, normal, normal);
+
+                        @include medium {
+                            @include letter(32px, 700, normal, normal);
+                            letter-spacing: -0.667px;
+                        }
                     }
                 }
 
 
             }
-
-            /* .amount__button {
-                width: 100%;
-                height: 48px;
-            } */
 
 
         }

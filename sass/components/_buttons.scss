@@ -5,9 +5,10 @@
     background-color: $color-dark;
     color: $color-white;
     text-align: center;
-    @include letter(24px, 700, normal, normal, 'Space Mono');
+    @include letter(24px, 700, normal, normal);
     border: none;
     cursor: pointer;
+
     &.btn--focus{
         background: #26C2AE;
         color: #00474B;
