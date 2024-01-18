@@ -1,0 +1,13 @@
+.calculator__logo {
+    background-color: $color-bg;
+    margin-bottom: 87.86px;
+    width: 100%;
+    height: auto;
+    @include flex-group(flex, center, center);
+
+    @include medium {
+        margin-bottom: 40.86px;
+        margin-top: 50px;
+    }
+
+}

@@ -20,20 +20,6 @@ body {
         width: 100vw;
     }
 
-    &__logo {
-        background-color: $color-bg;
-        margin-bottom: 87.86px;
-        width: 100%;
-        height: auto;
-        @include flex-group(flex, center, center);
-
-        @include medium {
-            margin-bottom: 40.86px;
-            margin-top: 50px;
-        }
-
-    }
-
     &__content {
         border-radius: 25px;
         background-color: $color-white;
@@ -71,60 +57,6 @@ body {
             @include medium {
                 width: 100%;
                 margin: 0 0 32px 0;
-            }
-
-            &-item1 {
-                margin-bottom: 40px;
-                .calculator__label--bill {
-                    margin-bottom: 6px;
-                }
-                .calculator__container {
-                    &.calculator__container--focus{
-                        border: 2px solid $color-focus;
-                    }
-                }
-            }
-
-            &-item2 {
-                width: 100%;
-                margin-bottom: 40px;
-                .calculator__label {
-                    margin-bottom: 16px;
-                }
-                .calculator__btns {
-                    width: 100%;
-                    display: grid;
-                    grid-template-columns: repeat(3, 1fr);
-                    grid-template-rows: repeat(2, auto);
-                    gap: 14px;
-
-                    @include x-small {
-                        grid-template-columns: repeat(2, 1fr);
-                        grid-template-rows: repeat(3, auto);
-                    }
-
-                    .custom {
-                        background-color: $color-input;
-                        color: $color-custom;
-                        text-align: center;
-                        border: 2px solid transparent;
-                        @include letter(24px, 700, normal, normal);
-                        &--focus {
-                            border: 2px solid $color-focus;
-                            color: $color-dark;
-                            text-align: right;
-                            padding-right: 10px;
-                        }
-                    }
-
-                }
-
-            }
-
-            &-item3 {
-                .calculator__label--people {
-                    margin-bottom: 6px;
-                }
             }
 
         }

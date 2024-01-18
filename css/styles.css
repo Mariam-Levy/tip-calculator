@@ -10,10 +10,40 @@ body {
   font-family: "Space Mono";
   width: 100vw;
   height: 100vh;
+  flex-direction: column;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
+}
+
+.label__content {
+  width: 100%;
+  height: auto;
+  margin-bottom: 6px;
+}
+.label__content.label__content--margin {
+  margin-bottom: 16px;
+}
+.label__content .label {
+  color: #5E7A7D;
+  font-size: 16px;
+  font-weight: 700;
+  font-style: normal;
+  line-height: normal;
+}
+
+.calculator__btns {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 14px;
+}
+@media (max-width: 395px) {
+  .calculator__btns {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, auto);
+  }
 }
 
 .btn {
@@ -31,7 +61,7 @@ body {
   cursor: pointer;
 }
 .btn.btn--focus {
-  background: #26C2AE;
+  background-color: #26C2AE;
   color: #00474B;
 }
 .btn.amount__button {
@@ -39,16 +69,10 @@ body {
   height: 48px;
 }
 
-.calculator__label {
-  margin-bottom: 6px;
-  color: #5E7A7D;
-  font-size: 16px;
-  font-weight: 700;
-  font-style: normal;
-  line-height: normal;
+.calculator__section-item.section-item--margin {
+  margin-bottom: 40px;
 }
-
-.calculator__container {
+.calculator__section-item .calculator__container {
   width: 100%;
   height: 48px;
   border-radius: 5px;
@@ -58,15 +82,11 @@ body {
   justify-content: space-between;
   border: 2px solid transparent;
 }
-
-.calculator__icon {
-  width: 9.84px;
-  height: auto;
-  margin-left: 19px;
-  display: flex;
+.calculator__section-item .calculator__container.calculator__container--focus {
+  border: 2px solid #26C2AE;
 }
 
-.calculator__input {
+.input {
   width: 100%;
   margin: 6px 17px 6px 0;
   color: #00474B;
@@ -80,8 +100,46 @@ body {
   font-style: normal;
   line-height: normal;
 }
-.calculator__input::placeholder {
+.input::placeholder {
   color: #9EBCBD;
+}
+
+.input--custom {
+  width: 100%;
+  height: 48px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  font-style: normal;
+  line-height: normal;
+  border: none;
+  cursor: pointer;
+  background-color: #F3F9FA;
+  color: #547878;
+}
+
+.icon {
+  width: 9.84px;
+  height: auto;
+  margin-left: 19px;
+  display: flex;
+}
+
+.calculator__logo {
+  background-color: #C5E4E7;
+  margin-bottom: 87.86px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 767px) {
+  .calculator__logo {
+    margin-bottom: 40.86px;
+    margin-top: 50px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -106,21 +164,6 @@ body {
 @media (max-width: 767px) {
   .calculator {
     width: 100vw;
-  }
-}
-.calculator__logo {
-  background-color: #C5E4E7;
-  margin-bottom: 87.86px;
-  width: 100%;
-  height: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-@media (max-width: 767px) {
-  .calculator__logo {
-    margin-bottom: 40.86px;
-    margin-top: 50px;
   }
 }
 .calculator__content {
@@ -167,54 +210,6 @@ body {
     width: 100%;
     margin: 0 0 32px 0;
   }
-}
-.calculator__content .calculator__section-item1 {
-  margin-bottom: 40px;
-}
-.calculator__content .calculator__section-item1 .calculator__label--bill {
-  margin-bottom: 6px;
-}
-.calculator__content .calculator__section-item1 .calculator__container.calculator__container--focus {
-  border: 2px solid #26C2AE;
-}
-.calculator__content .calculator__section-item2 {
-  width: 100%;
-  margin-bottom: 40px;
-}
-.calculator__content .calculator__section-item2 .calculator__label {
-  margin-bottom: 16px;
-}
-.calculator__content .calculator__section-item2 .calculator__btns {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, auto);
-  gap: 14px;
-}
-@media (max-width: 395px) {
-  .calculator__content .calculator__section-item2 .calculator__btns {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, auto);
-  }
-}
-.calculator__content .calculator__section-item2 .calculator__btns .custom {
-  background-color: #F3F9FA;
-  color: #547878;
-  text-align: center;
-  border: 2px solid transparent;
-  font-size: 24px;
-  font-weight: 700;
-  font-style: normal;
-  line-height: normal;
-}
-.calculator__content .calculator__section-item2 .calculator__btns .custom--focus {
-  border: 2px solid #26C2AE;
-  color: #00474B;
-  text-align: right;
-  padding-right: 10px;
-}
-.calculator__content .calculator__section-item3 .calculator__label--people {
-  margin-bottom: 6px;
 }
 .calculator__content .calculator__amount {
   width: 47%;
