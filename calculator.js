@@ -1,11 +1,11 @@
 //Calcula la propina correcta y el coste total de la factura por persona.
 
-document.addEventListener('DOMContentLoaded', initProgram );
+/* document.addEventListener('DOMContentLoaded', initProgram ); */
 
 
 
 
-function initProgram( ){
+/* function initProgram( ){
     
     
     const billInput = document.getElementById('bill');
@@ -65,12 +65,7 @@ function initProgram( ){
     })
 
 
-}
-
-
-
-
-
+} */
 
 
 

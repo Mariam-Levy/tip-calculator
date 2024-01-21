@@ -1,0 +1,27 @@
+.display {
+    width: 100%;
+    height: auto;
+    @include flex-group(flex, center, space-between);
+
+    &__tip {
+        color: $color-white;
+        @include letter(16px, 700, normal, normal);
+
+        span {
+            color: $color-person;
+            @include letter(13px, 700, normal, normal);
+        }
+    }
+
+    &__number {
+        color: $color-focus;
+        text-align: right;
+        letter-spacing: -1px;
+        @include letter(48px, 700, normal, normal);
+
+        @include medium {
+            @include letter(32px, 700, normal, normal);
+            letter-spacing: -0.667px;
+        }
+    }
+}

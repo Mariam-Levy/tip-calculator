@@ -1,9 +1,15 @@
+
 @import "../abstracts/variables";
+@import "../abstracts/breakpoints";
+
 @import "../utils/mixins";
 @import "../base/base";
-@import "../abstracts/breakpoints";
+
 @import "../components/label";
 @import "../components/buttons";
 @import "../components/input";
 @import "../components/icons";
 @import "../components/logo";
+@import "../components/display";
+
+@import "../pages/home";

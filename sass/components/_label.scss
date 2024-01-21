@@ -1,12 +1,9 @@
-.label__content {
+.label {
     width: 100%;
     height: auto;
-    margin-bottom: 6px;
-    &.label__content--margin{
-        margin-bottom: 16px;
+
+    &__element {
+        color: #5E7A7D;
+        @include letter(16px, 700, normal, normal);
     }
-        .label {
-            color: #5E7A7D;
-            @include letter(16px, 700, normal, normal);
-        }
 }
