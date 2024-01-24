@@ -79,6 +79,14 @@
                     }
                 
                 }
+
+                .error {
+                    color: #E17457;
+                    &::after {
+                        content: "Can't be zero";
+                        font-size: 16px;
+                    }
+                }
             
             }
 
@@ -115,8 +123,6 @@
                 @include medium {
                     margin-bottom: 32px;
                 }
-
-                
 
 
             }

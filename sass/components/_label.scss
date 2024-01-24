@@ -1,9 +1,21 @@
 .label {
     width: 100%;
     height: auto;
+    @include flex-group(flex, center, space-between);
 
     &__element {
         color: #5E7A7D;
         @include letter(16px, 700, normal, normal);
+
+        &.label--zero {
+            color: $color-error;
+            /* content: "Can't be zero"; */
+            @include letter(16px, 700, normal, normal);
+            display: none;
+        }
+
     }
+
+
+
 }
