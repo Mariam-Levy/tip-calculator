@@ -72,9 +72,11 @@
 
 //input-bill
 let bill = document.getElementById('bill');
+let billNumber = parseInt(bill.value);
 
 //input-people
 let people = document.getElementById('people');
+let peopleNumber;
 
 //input-custom
 let custom = document.querySelector('.input__element--custom');
@@ -88,16 +90,17 @@ let resultAmount = document.querySelector('.display__number-amount');
 //resultado total x persona
 let resultTotal = document.querySelector('.display__number-total');
 
-let reset = document.getElementById('reset');
+const reset = document.getElementById('reset');
 
 const inputError = document.querySelector('.input--error');
 const labelZero = document.querySelector('.label--zero');
-
 const inputBill = document.querySelector('.input--bill');
 
 
 //Select Tip %
 let selectTip = 5;
+
+
 
 
 //--------- capturar los datos de los input ---------
@@ -110,8 +113,9 @@ bill.addEventListener('input', () => {
         inputBill.style.borderColor = '#E17457';
     } else {
         inputBill.style.borderColor = '#26C2AE';
-
+        calculate();
     }
+
 });
 
 
@@ -130,7 +134,8 @@ buttons.forEach( button => {
         //Obtiene el contenido del boton clickeado
         selectTip = parseInt(e.target.innerText.slice(0, -1));
 
-
+        removeClass();
+        calculate();
     })
 })
 
@@ -145,8 +150,8 @@ custom.addEventListener('input', function() {
 
     //isNaN determina si un valor es NaN(Not-a-Number)
     if(!isNaN(selectTip)) {
-        /* calculate(); //si es numero, ejecuta la funcion */
-    }
+        calculate();
+    } 
 })
 
 
@@ -162,6 +167,7 @@ people.addEventListener('input', () => {
     } else {
         labelZero.style.display = 'none';
         inputError.style.borderColor = '#26C2AE';
+        calculate();
     }
 
 });
@@ -172,10 +178,14 @@ people.addEventListener('input', () => {
 // ---- Boton para reiniciar los valores de todos los input ----
 reset.addEventListener('click', () => {
     bill.value = '';
+    billNumber = 0;
     people.value = '';
+    peopleNumber = 0;
     custom.value = '';
-})
 
+    resultAmount.innerText = '$0.00';
+    resultTotal.innerText = '$0.00';
+})
 
 
 
@@ -188,6 +198,7 @@ reset.addEventListener('click', () => {
 //Funcion para remover la clase "active" de los botones
 function removeClass() {
     buttons.forEach(button => button.classList.remove('button--active'));
+    custom.value = ''; /*  */
 }
 
 
@@ -201,7 +212,18 @@ function removeClass() {
     resultTotal.innerText = (((billNumber * selectTip / 100) + billNumber) / peopleNumber).toFixed(2);
 } */
 
+function calculate() {
+    if (billNumber > 0 && selectTip > 0 && peopleNumber > 0) {
+        // Calculo de "tip amount"
+        resultAmount.innerText = ((billNumber * selectTip / 100) / peopleNumber).toFixed(2);
 
-
+        // Calculo de "total"
+        resultTotal.innerText = (((billNumber * selectTip / 100) + billNumber) / peopleNumber).toFixed(2);
+    } else {
+        // Si alguno de los campos necesarios está vacío, establecer los resultados a 0.00
+        resultAmount.innerText = '0.00';
+        resultTotal.innerText = '0.00';
+    }
+}
 
 
