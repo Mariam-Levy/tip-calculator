@@ -1,74 +1,9 @@
 
 //Calcula la propina correcta y el coste total de la factura por persona.
 
-/* document.addEventListener('DOMContentLoaded', initProgram ); */
+document.addEventListener('DOMContentLoaded', initProgram );
 
-
-
-
-/* function initProgram( ){
-    
-    
-    const billInput = document.getElementById('bill');
-    const buttons = document.querySelectorAll('.btn');
-    const customTip = document.getElementById('tip');
-    
-    
-        const Tip5 = document.getElementById('btn5');
-        const Tip10 = document.getElementById('btn10');
-        const Tip15 = document.getElementById('btn15');
-        const Tip25 = document.getElementById('btn25');
-        const Tip50 = document.getElementById('btn50');
-
-        const listTips = [
-            Tip5, Tip10, Tip15, Tip25, Tip50,
-        ]
-
-
-    billInput.addEventListener('input', function() {
-        const billValue = parseFloat(billInput.value);
-
-        if (!isNaN(billValue)) {
-            // Verifica si el valor es un número válido
-            console.log(billValue);
-        } else {
-            // Podrías manejar el caso en el que el valor no sea un número válido
-            console.log('Ingresa un valor numérico válido');
-        }
-    });
-
-
-    let tipsValue;
-
-    listTips.forEach(function(button) {
-        button.addEventListener('click', function() {
-            const percentage = parseFloat(button.innerHTML.replace('%', ''));
-            console.log('porcentaje predefinido:', percentage);
-            tipsValue = percentage;
-
-        })
-        
-
-    })
-
-
-
-    customTip.addEventListener('input', function() {
-        const customValue = parseFloat(customTip.value);
-
-        if (!isNaN(customValue)) {
-            // Verifica si el valor es un número válido
-            console.log(customValue);
-        } else {
-            // Podrías manejar el caso en el que el valor no sea un número válido
-            console.log('Ingresa un valor numérico válido');
-        }
-    })
-
-
-} */
-
-
+function initProgram() {
 
 //input-bill
 let bill = document.getElementById('bill');
@@ -79,7 +14,7 @@ let people = document.getElementById('people');
 let peopleNumber;
 
 //input-custom
-let custom = document.querySelector('.input__element--custom');
+let customTip = document.getElementById('custom-tip');
 
 //todos los botones
 let buttons = document.querySelectorAll('button');
@@ -92,10 +27,12 @@ let resultTotal = document.querySelector('.display__number-total');
 
 const reset = document.getElementById('reset');
 
-const inputError = document.querySelector('.input--error');
-const labelZero = document.querySelector('.label--zero');
-const inputBill = document.querySelector('.input--bill');
+const labelZero = document.getElementById('label-zero');
 
+const inputBill = document.getElementById('input-bill');
+const inputCustom = document.getElementById('input-custom');
+
+const inputPeople = document.getElementById('input-people');
 
 //Select Tip %
 let selectTip = 5;
@@ -109,49 +46,53 @@ bill.addEventListener('input', () => {
     billNumber = parseFloat(bill.value);
     console.log(billNumber);
 
-    if(billNumber === 0) {
+    if(billNumber === 0 || Math.sign(billNumber) === -1 ) {
         inputBill.style.borderColor = '#E17457';
     } else {
         inputBill.style.borderColor = '#26C2AE';
         calculate();
     }
-
 });
 
 
 //2.a- Valor de los botones
 //Itera sobre cada boton
-buttons.forEach( button => {
+buttons.forEach(button => {
     //añade un evento click sobre cada boton
     button.addEventListener('click', function(e) {
 
-        //Itera nuevamente sobre cada boton para eliminar la clase "button--active"
-        buttons.forEach(button => button.classList.remove('button--active'));
+        //Itera nuevamente sobre cada boton para eliminar la clase "select-tip--active"
+        buttons.forEach(element => element.classList.remove('button--active'));
 
         //Añade la clase "button--active" al boton que recibio el evento click
         button.classList.add('button--active');
 
         //Obtiene el contenido del boton clickeado
         selectTip = parseInt(e.target.innerText.slice(0, -1));
+        console.log(selectTip);
 
-        removeClass();
+        removeCustom();
+
         calculate();
     })
 })
 
 
 //2.b- Custom
-custom.addEventListener('click', () => {
+customTip.addEventListener('click', () => {
     removeClass(); //funcion que remueve la clase de los botones al darle click al input "Custom"
 })
-custom.addEventListener('input', function() {
-    selectTip = parseFloat(custom.value);
+customTip.addEventListener('input', function() {
+    selectTip = parseFloat(customTip.value);
     console.log(selectTip);
 
     //isNaN determina si un valor es NaN(Not-a-Number)
-    if(!isNaN(selectTip)) {
+    if(isNaN(selectTip) || Math.sign(selectTip) === -1 || selectTip > 100) {
+        inputCustom.style.borderColor = '#E17457';
+    } else {
+        inputCustom.style.borderColor = '#26C2AE';
         calculate();
-    } 
+    }
 })
 
 
@@ -161,12 +102,12 @@ people.addEventListener('input', () => {
     console.log(peopleNumber);
 
 
-    if(peopleNumber == 0 || isNaN(peopleNumber)) {
-        inputError.style.borderColor = '#E17457';
+    if(peopleNumber == 0 || isNaN(peopleNumber) || Math.sign(peopleNumber) === -1) {
+        inputPeople.style.borderColor = '#E17457';
         labelZero.style.display = 'block';
     } else {
         labelZero.style.display = 'none';
-        inputError.style.borderColor = '#26C2AE';
+        inputPeople.style.borderColor = '#26C2AE';
         calculate();
     }
 
@@ -174,14 +115,18 @@ people.addEventListener('input', () => {
 
 
 
-
 // ---- Boton para reiniciar los valores de todos los input ----
 reset.addEventListener('click', () => {
-    bill.value = '';
+    bill.value = null;
     billNumber = 0;
-    people.value = '';
+    people.value = null;
     peopleNumber = 0;
-    custom.value = '';
+    customTip.value = null;
+
+    bill.style.borderColor = 'transparent';
+    inputCustom.style.borderColor = 'transparent';
+    inputPeople.style.borderColor = 'transparent';
+    labelZero.style.display = 'none';
 
     resultAmount.innerText = '$0.00';
     resultTotal.innerText = '$0.00';
@@ -189,28 +134,18 @@ reset.addEventListener('click', () => {
 
 
 
-
-
-
-
 // ------- FUNCIONES ---------------
 
 //Funcion para remover la clase "active" de los botones
 function removeClass() {
-    buttons.forEach(button => button.classList.remove('button--active'));
-    custom.value = ''; /*  */
+    buttons.forEach(element => element.classList.remove('button--active'));
+    customTip.value = '';
 }
 
+function removeCustom() {
+    customTip.value = '';
+}
 
-
-
-/* function calculate() {
-    //Calculo de "tip amount"
-    resultAmount.innerText = ((billNumber * selectTip / 100) / peopleNumber).toFixed(2);
-    
-    //Calculo de "total"
-    resultTotal.innerText = (((billNumber * selectTip / 100) + billNumber) / peopleNumber).toFixed(2);
-} */
 
 function calculate() {
     if (billNumber > 0 && selectTip > 0 && peopleNumber > 0) {
@@ -227,3 +162,4 @@ function calculate() {
 }
 
 
+}

@@ -9,8 +9,6 @@
 
         &.label--zero {
             color: $color-error;
-            /* content: "Can't be zero"; */
-            @include letter(16px, 700, normal, normal);
             display: none;
         }
 
